@@ -1,7 +1,7 @@
-package library.repository;
+package library.library.repository;
 
 
-import library.entities.Book;
+import library.library.entities.Book;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;

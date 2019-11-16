@@ -1,7 +1,6 @@
 package library.library.Service;
 
-import library.library.Dao.BookDao;
-import library.repository.BookRepo;
+import library.library.repository.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

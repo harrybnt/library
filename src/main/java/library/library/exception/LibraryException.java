@@ -1,4 +1,4 @@
-package library.exception;
+package library.library.exception;
 
 import java.io.Serializable;
 

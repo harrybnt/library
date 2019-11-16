@@ -24,7 +24,7 @@ public class UserController {
         try {
             String userId = userObject.getUserId();
             String userName = userObject.getUserName();
-            response = userService.createUser(userId, userName);
+            response = userService.createUser(userName);
             message = "Successfully user created";
             status = 1;
         } catch (Exception ex) {

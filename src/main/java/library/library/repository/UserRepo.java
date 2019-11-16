@@ -1,6 +1,6 @@
-package library.repository;
+package library.library.repository;
 
-import library.entities.UserEntity;
+import library.library.entities.UserEntity;
 import org.springframework.stereotype.Repository;
 
 import java.util.HashMap;

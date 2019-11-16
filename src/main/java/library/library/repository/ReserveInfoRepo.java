@@ -1,7 +1,7 @@
-package library.repository;
+package library.library.repository;
 
-import library.entities.ReserveInfo;
-import library.exception.LibraryException;
+import library.library.entities.ReserveInfo;
+import library.library.exception.LibraryException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
