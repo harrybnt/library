@@ -3,12 +3,10 @@ package library.library.controller;
 import library.library.RequestObject.BookObject;
 import library.library.RequestObject.UserObject;
 import library.library.Service.BookService;
+import library.library.pojo.BookIssueRequest;
 import library.library.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class BookController {
@@ -33,6 +31,36 @@ public class BookController {
 
         }
         return new Response(status, message, response);
+    }
+
+    @PostMapping(value = "api/v1/book/issue")
+    public Response issueBook(BookIssueRequest bookIssueRequest) {
+        Boolean isSuccessful = bookService.issue(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
+        return new Response(1, "Success", isSuccessful.toString());
+    }
+
+    @PostMapping(value = "api/v1/book/return")
+    public Response returnBook(BookIssueRequest bookIssueRequest) {
+        Boolean isSuccessful = bookService.returnBook(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
+        return new Response(1, "Success", isSuccessful.toString());
+    }
+
+    @PostMapping(value = "api/v1/book/reserve")
+    public Response reserve(BookIssueRequest bookIssueRequest) {
+        Boolean isSuccessful = bookService.reserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
+        return new Response(1, "Success", isSuccessful.toString());
+    }
+
+    @PostMapping(value = "api/v1/book/unReserve")
+    public Response unReserve(BookIssueRequest bookIssueRequest) {
+        Boolean isSuccessful = bookService.unReserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId());
+        return new Response(1, "Success", isSuccessful.toString());
+    }
+
+    @GetMapping(value = "api/v1/book/{bookId}/check")
+    public Response unReserve(@PathVariable("bookId") String bookId) {
+        Boolean isSuccessful = bookService.checkAvailability(bookId);
+        return new Response(1, "Success", isSuccessful.toString());
     }
 }
 
