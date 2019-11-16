@@ -3,6 +3,7 @@ package library.library.controller;
 import library.library.RequestObject.BookObject;
 import library.library.RequestObject.UserObject;
 import library.library.Service.BookService;
+import library.library.exception.LibraryException;
 import library.library.pojo.BookIssueRequest;
 import library.library.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,8 +39,8 @@ public class BookController {
         try{
             Boolean isSuccessful = bookService.issue(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
             return new Response(1, "Success", isSuccessful.toString());
-        }catch (Exception ex){
-            return new Response(0, "Failed", ex.getMessage());
+        }catch (LibraryException ex){
+            return new Response(0, "Failed",  ex.getErrorMsg());
         }
 
     }
@@ -49,8 +50,8 @@ public class BookController {
         try{
             Boolean isSuccessful = bookService.returnBook(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
             return new Response(1, "Success", isSuccessful.toString());
-        }catch (Exception ex){
-            return new Response(0, "Failed", ex.getMessage());
+        }catch (LibraryException ex){
+            return new Response(0, "Failed",  ex.getErrorMsg());
         }
     }
 
@@ -59,8 +60,8 @@ public class BookController {
         try{
             Boolean isSuccessful = bookService.reserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
             return new Response(1, "Success", isSuccessful.toString());
-        }catch (Exception ex){
-            return new Response(0, "Failed", ex.getMessage());
+        }catch (LibraryException ex){
+            return new Response(0, "Failed", ex.getErrorMsg());
         }
     }
 
@@ -69,8 +70,8 @@ public class BookController {
         try{
             Boolean isSuccessful = bookService.unReserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId());
             return new Response(1, "Success", isSuccessful.toString());
-        }catch (Exception ex){
-            return new Response(0, "Failed", ex.getMessage());
+        }catch (LibraryException ex){
+            return new Response(0, "Failed",ex.getErrorMsg());
         }
 
     }
@@ -80,8 +81,8 @@ public class BookController {
         try{
             Boolean isSuccessful = bookService.checkAvailability(bookId);
             return new Response(1, "Success", isSuccessful.toString());
-        }catch (Exception ex){
-            return new Response(0, "Failed", ex.getMessage());
+        }catch (LibraryException ex){
+            return new Response(0, "Failed", ex.getErrorMsg());
         }
 
     }

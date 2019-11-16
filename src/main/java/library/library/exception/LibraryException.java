@@ -12,6 +12,10 @@ public class LibraryException extends RuntimeException {
         this.errorMsg = errorMsg;
     }
 
+    public String getErrorMsg() {
+        return errorMsg;
+    }
+
     private String errorMsg;
 
 }
