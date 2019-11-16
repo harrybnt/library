@@ -14,5 +14,4 @@ public class LibraryException extends RuntimeException {
 
     private String errorMsg;
 
-
 }

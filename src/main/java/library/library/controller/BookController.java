@@ -35,32 +35,55 @@ public class BookController {
 
     @PostMapping(value = "api/v1/book/issue")
     public Response issueBook(@RequestBody BookIssueRequest bookIssueRequest) {
-        Boolean isSuccessful = bookService.issue(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
-        return new Response(1, "Success", isSuccessful.toString());
+        try{
+            Boolean isSuccessful = bookService.issue(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
+            return new Response(1, "Success", isSuccessful.toString());
+        }catch (Exception ex){
+            return new Response(0, "Failed", ex.getMessage());
+        }
+
     }
 
     @PostMapping(value = "api/v1/book/return")
     public Response returnBook(@RequestBody BookIssueRequest bookIssueRequest) {
-        Boolean isSuccessful = bookService.returnBook(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
-        return new Response(1, "Success", isSuccessful.toString());
+        try{
+            Boolean isSuccessful = bookService.returnBook(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
+            return new Response(1, "Success", isSuccessful.toString());
+        }catch (Exception ex){
+            return new Response(0, "Failed", ex.getMessage());
+        }
     }
 
     @PostMapping(value = "api/v1/book/reserve")
     public Response reserve(@RequestBody BookIssueRequest bookIssueRequest) {
-        Boolean isSuccessful = bookService.reserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
-        return new Response(1, "Success", isSuccessful.toString());
+        try{
+            Boolean isSuccessful = bookService.reserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
+            return new Response(1, "Success", isSuccessful.toString());
+        }catch (Exception ex){
+            return new Response(0, "Failed", ex.getMessage());
+        }
     }
 
     @PostMapping(value = "api/v1/book/unReserve")
     public Response unReserve(@RequestBody BookIssueRequest bookIssueRequest) {
-        Boolean isSuccessful = bookService.unReserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId());
-        return new Response(1, "Success", isSuccessful.toString());
+        try{
+            Boolean isSuccessful = bookService.unReserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId());
+            return new Response(1, "Success", isSuccessful.toString());
+        }catch (Exception ex){
+            return new Response(0, "Failed", ex.getMessage());
+        }
+
     }
 
     @GetMapping(value = "api/v1/book/{bookId}/check")
     public Response unReserve(@PathVariable("bookId") String bookId) {
-        Boolean isSuccessful = bookService.checkAvailability(bookId);
-        return new Response(1, "Success", isSuccessful.toString());
+        try{
+            Boolean isSuccessful = bookService.checkAvailability(bookId);
+            return new Response(1, "Success", isSuccessful.toString());
+        }catch (Exception ex){
+            return new Response(0, "Failed", ex.getMessage());
+        }
+
     }
 }
 

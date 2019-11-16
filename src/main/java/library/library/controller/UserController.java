@@ -19,7 +19,6 @@ public class UserController {
     @PostMapping(value = "api/v1/user")
     public Response createUser(@RequestBody UserObject userObject) {
         try {
-            String userId = userObject.getUserId();
             String userName = userObject.getUserName();
             response = userService.createUser(userName);
             message = "Successfully user created";
