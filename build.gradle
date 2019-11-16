@@ -17,6 +17,20 @@ dependencies {
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: '2.2.1.RELEASE'
+	// https://mvnrepository.com/artifact/org.projectlombok/lombok
+// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	providedCompile group: 'org.projectlombok', name: 'lombok', version: '0.11.0'
+	compile('org.projectlombok:lombok')
+	compile(group: 'org.springframework.boot', name: 'spring-boot-starter', version: "${springBootVersion}")
+	compile(group: 'org.springframework.boot', name: 'spring-boot-starter-tomcat', version: "${springBootVersion}")
+	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-web
+	compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '2.2.1.RELEASE'
+
+
+
+
 }
 
 test {
