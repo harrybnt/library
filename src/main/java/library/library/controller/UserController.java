@@ -4,10 +4,7 @@ import library.library.RequestObject.UserObject;
 import library.library.Service.UserService;
 import library.library.response.Response;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class UserController {
@@ -20,7 +17,7 @@ public class UserController {
     private int status = 0;
 
     @PostMapping(value = "api/v1/user")
-    public Response createUser(UserObject userObject) {
+    public Response createUser(@RequestBody UserObject userObject) {
         try {
             String userId = userObject.getUserId();
             String userName = userObject.getUserName();
