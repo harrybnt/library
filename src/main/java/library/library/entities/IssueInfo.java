@@ -1,11 +1,7 @@
 package library.library.entities;
 
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name = "issue_info")
 public class IssueInfo {
 
     public String getId() {
@@ -56,19 +52,16 @@ public class IssueInfo {
         this.createdAt = createdAt;
     }
 
-    @Column(name = "id")
-    @Id
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "book_id")
+
     private String bookId;
 
-    @Column(name = "is_issued")
+
     private boolean isIssued;
 
-    @Column(name = "created_at")
+
     private Long createdAt;
 }

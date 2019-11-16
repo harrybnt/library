@@ -1,10 +1,6 @@
 package library.library.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name = "reserve_info")
 public class ReserveInfo {
 
     public ReserveInfo(String id, String userId, String bookId, boolean isReserved, Long createdAt) {
@@ -15,14 +11,11 @@ public class ReserveInfo {
         this.createdAt = createdAt;
     }
 
-    @Column(name = "id")
-    @Id
     private String id;
 
-    @Column(name = "user_id")
     private String userId;
 
-    @Column(name = "book_id")
+
     private String bookId;
 
     public String getId() {
@@ -65,10 +58,10 @@ public class ReserveInfo {
         this.createdAt = createdAt;
     }
 
-    @Column(name = "is_reserved")
+
     private boolean isReserved;
 
-    @Column(name = "created_at")
+
     private Long createdAt;
 
 }

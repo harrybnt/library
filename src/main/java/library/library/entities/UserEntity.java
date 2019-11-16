@@ -1,18 +1,14 @@
 package library.library.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
 
-@Table(name = "user_entity")
+
+
 public class UserEntity {
 
-    @Id
-    @Column(name = "id")
     private String id;
 
-    @Column(name = "user_name")
+
     private String userName;
 
     public UserEntity(String id, String userName) {

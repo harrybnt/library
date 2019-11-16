@@ -1,10 +1,6 @@
 package library.library.entities;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
 
-@Table(name = "book")
 public class Book {
 
     public Book(String id, String bookName) {
@@ -12,11 +8,8 @@ public class Book {
         this.bookName = bookName;
     }
 
-    @Column(name = "id")
-    @Id
     private String id;
 
-    @Column(name = "book_name")
     private String bookName;
 
     public boolean isAvailable() {
@@ -27,7 +20,6 @@ public class Book {
         isAvailable = available;
     }
 
-    @Column(name = "is_available")
     private boolean isAvailable;
 
     public String getId() {
