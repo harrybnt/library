@@ -34,25 +34,25 @@ public class BookController {
     }
 
     @PostMapping(value = "api/v1/book/issue")
-    public Response issueBook(BookIssueRequest bookIssueRequest) {
+    public Response issueBook(@RequestBody BookIssueRequest bookIssueRequest) {
         Boolean isSuccessful = bookService.issue(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
         return new Response(1, "Success", isSuccessful.toString());
     }
 
     @PostMapping(value = "api/v1/book/return")
-    public Response returnBook(BookIssueRequest bookIssueRequest) {
+    public Response returnBook(@RequestBody BookIssueRequest bookIssueRequest) {
         Boolean isSuccessful = bookService.returnBook(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
         return new Response(1, "Success", isSuccessful.toString());
     }
 
     @PostMapping(value = "api/v1/book/reserve")
-    public Response reserve(BookIssueRequest bookIssueRequest) {
+    public Response reserve(@RequestBody BookIssueRequest bookIssueRequest) {
         Boolean isSuccessful = bookService.reserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId() );
         return new Response(1, "Success", isSuccessful.toString());
     }
 
     @PostMapping(value = "api/v1/book/unReserve")
-    public Response unReserve(BookIssueRequest bookIssueRequest) {
+    public Response unReserve(@RequestBody BookIssueRequest bookIssueRequest) {
         Boolean isSuccessful = bookService.unReserve(bookIssueRequest.getUserId(),  bookIssueRequest.getBookId());
         return new Response(1, "Success", isSuccessful.toString());
     }

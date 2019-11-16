@@ -23,6 +23,8 @@ public class BookRepo {
     }
 
     public boolean isBookAvaialable(String bookId) {
-        return books.containsKey(bookId);
+        System.out.println("wha " + bookId);
+        System.out.println(books + "yaha");
+        return books.get(bookId) != null && books.get(bookId).isAvailable();
     }
 }

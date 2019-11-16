@@ -34,10 +34,6 @@ public class ReserveInfoRepo {
         String key = userId + "_" + bookId;
         ReserveInfo reserveInfo =  reserveInfos.get(key);
 
-        if(bookRepo.isBookAvaialable(bookId)) {
-            throw new LibraryException("Book is not available");
-        }
-
         if(reserveInfo == null || !reserveInfo.isReserved()) {
             throw new LibraryException("book is not reserved by the user");
         } else {

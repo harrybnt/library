@@ -1,9 +1,6 @@
 package library.library.entities;
 
 
-
-
-
 public class UserEntity {
 
     private String id;
