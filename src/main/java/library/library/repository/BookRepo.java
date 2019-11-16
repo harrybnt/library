@@ -23,8 +23,17 @@ public class BookRepo {
     }
 
     public boolean isBookAvaialable(String bookId) {
-        System.out.println("wha " + bookId);
-        System.out.println(books + "yaha");
         return books.get(bookId) != null && books.get(bookId).isAvailable();
     }
+
+    public void makeBookUnavailable(String bookId) {
+        Book book = books.get(bookId);
+        book.setAvailable(false);
+    }
+
+    public void makeBookAvailable(String bookId) {
+        Book book = books.get(bookId);
+        book.setAvailable(true);
+    }
+
 }

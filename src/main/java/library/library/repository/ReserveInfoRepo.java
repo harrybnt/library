@@ -24,6 +24,7 @@ public class ReserveInfoRepo {
             UUID uuid = UUID.randomUUID();
             ReserveInfo reserveInfo  = new ReserveInfo(uuid.toString(), userId, bookId, true, System.currentTimeMillis());
             reserveInfos.put(key, reserveInfo);
+            bookRepo.makeBookUnavailable(bookId);
         } else {
             throw new LibraryException("Book already reserved");
         }
@@ -40,6 +41,7 @@ public class ReserveInfoRepo {
             UUID uuid = UUID.randomUUID();
             ReserveInfo reserveInfoCurrent  = new ReserveInfo(uuid.toString(), userId, bookId, false, System.currentTimeMillis());
             reserveInfos.put(key, reserveInfoCurrent);
+            bookRepo.makeBookAvailable(bookId);
         }
         return true;
     }
