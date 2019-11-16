@@ -1,6 +1,7 @@
 package library.library.Service;
 
 import library.library.Dao.UserDao;
+import library.repository.UserRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,9 +9,9 @@ import org.springframework.stereotype.Service;
 public class UserService {
 
     @Autowired
-    private UserDao userDao;
+    private UserRepo userRepo;
 
     public String createUser(String userId , String userName){
-        return userDao.save(userId,userName);
+        return userRepo.addUser(userName);
     }
 }

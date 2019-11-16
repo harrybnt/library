@@ -24,6 +24,7 @@ public class BookController {
     public Response createBook(BookObject bookObject) {
         try {
             String bookName = bookObject.getBookName();
+            bookService.createBook(bookName);
             response = bookService.createBook(bookName);
             message = "Successfully Book created";
             status = 1;

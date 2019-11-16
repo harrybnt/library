@@ -13,14 +13,14 @@ repositories {
 }
 
 dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
 	}
-	// https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-rest
+
 	compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-rest', version: '2.2.1.RELEASE'
-	// https://mvnrepository.com/artifact/org.projectlombok/lombok
-// https://mvnrepository.com/artifact/org.projectlombok/lombok
+	
 	providedCompile group: 'org.projectlombok', name: 'lombok', version: '0.11.0'
 	compile('org.projectlombok:lombok')
 	compile(group: 'org.springframework.boot', name: 'spring-boot-starter', version: "${springBootVersion}")

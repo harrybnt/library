@@ -1,6 +1,7 @@
 package library.library.Service;
 
 import library.library.Dao.BookDao;
+import library.repository.BookRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,10 +9,9 @@ import org.springframework.stereotype.Service;
 public class BookService {
 
     @Autowired
-    private BookDao bookDao;
+    private BookRepo bookRepo;
 
     public String createBook(String bookName){
-        return bookDao.save(bookName);
-
+        return bookRepo.addBook(bookName);
     }
 }
