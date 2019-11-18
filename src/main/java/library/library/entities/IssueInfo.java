@@ -56,12 +56,9 @@ public class IssueInfo {
 
     private String userId;
 
-
     private String bookId;
 
-
     private boolean isIssued;
-
 
     private Long createdAt;
 }

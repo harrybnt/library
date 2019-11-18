@@ -15,13 +15,16 @@ public class IssueInfoRepo {
     @Autowired
     private BookRepo bookRepo;
 
+    @Autowired
+    private ReserveInfoRepo reserveInfoRepo;
+
     private Map<String, IssueInfo> issueInfos = new HashMap<>();
 
     public boolean issue(String userId, String bookId) {
         String key = userId + "_" + bookId;
-        if(bookRepo.isBookAvaialable(bookId)) {
+        if (bookRepo.isBookAvaialable(bookId) || reserveInfoRepo.checkReserveBookBySameUser(key)) {
             UUID uuid = UUID.randomUUID();
-            IssueInfo issueInfo  = new IssueInfo(uuid.toString(), userId, bookId, true, System.currentTimeMillis());
+            IssueInfo issueInfo = new IssueInfo(uuid.toString(), userId, bookId, true, System.currentTimeMillis());
             issueInfos.put(key, issueInfo);
             bookRepo.makeBookUnavailable(bookId);
         } else {
@@ -32,13 +35,13 @@ public class IssueInfoRepo {
 
     public boolean returnBook(String userId, String bookId) {
         String key = userId + "_" + bookId;
-        IssueInfo issueInfo =  issueInfos.get(key);
+        IssueInfo issueInfo = issueInfos.get(key);
 
-        if(issueInfo == null || !issueInfo.isIssued()) {
+        if (issueInfo == null || !issueInfo.isIssued()) {
             throw new LibraryException("book is not issued by the user");
         } else {
             UUID uuid = UUID.randomUUID();
-            IssueInfo reserveInfoCurrent  = new IssueInfo(uuid.toString(), userId, bookId, false, System.currentTimeMillis());
+            IssueInfo reserveInfoCurrent = new IssueInfo(uuid.toString(), userId, bookId, false, System.currentTimeMillis());
             issueInfos.put(key, reserveInfoCurrent);
             bookRepo.makeBookAvailable(bookId);
         }

@@ -46,4 +46,10 @@ public class ReserveInfoRepo {
         return true;
     }
 
+    public boolean checkReserveBookBySameUser(String key){
+        if(reserveInfos!=null && reserveInfos.get(key)!=null){
+            return  reserveInfos.get(key).isReserved();
+        }
+        return false;
+    }
 }
